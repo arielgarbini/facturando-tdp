@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<loginTicketResponse version="1">
+    <header>
+        <source>CN=wsaa, O=AFIP, C=AR, SERIALNUMBER=CUIT 33693450239</source>
+        <destination>SERIALNUMBER=CUIT 20139809255, CN=facturando.net</destination>
+        <uniqueId>3898563514</uniqueId>
+        <generationTime>2017-09-05T12:15:59.209-03:00</generationTime>
+        <expirationTime>2017-09-06T00:15:59.209-03:00</expirationTime>
+    </header>
+    <credentials>
+        <token>PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/Pgo8c3NvIHZlcnNpb249IjIuMCI+CiAgICA8aWQgdW5pcXVlX2lkPSI0MTIzNzE5MzAwIiBzcmM9IkNOPXdzYWEsIE89QUZJUCwgQz1BUiwgU0VSSUFMTlVNQkVSPUNVSVQgMzM2OTM0NTAyMzkiIGdlbl90aW1lPSIxNTA0NjI0NDk5IiBleHBfdGltZT0iMTUwNDY2Nzc1OSIgZHN0PSJDTj13c2ZlLCBPPUFGSVAsIEM9QVIiLz4KICAgIDxvcGVyYXRpb24gdmFsdWU9ImdyYW50ZWQiIHR5cGU9ImxvZ2luIj4KICAgICAgICA8bG9naW4gdWlkPSJTRVJJQUxOVU1CRVI9Q1VJVCAyMDEzOTgwOTI1NSwgQ049ZmFjdHVyYW5kby5uZXQiIHNlcnZpY2U9IndzZmUiIHJlZ21ldGhvZD0iMjIiIGVudGl0eT0iMzM2OTM0NTAyMzkiIGF1dGhtZXRob2Q9ImNtcyI+CiAgICAgICAgICAgIDxyZWxhdGlvbnM+CiAgICAgICAgICAgICAgICA8cmVsYXRpb24gcmVsdHlwZT0iNCIga2V5PSIyMDEzOTgwOTI1NSIvPgogICAgICAgICAgICA8L3JlbGF0aW9ucz4KICAgICAgICA8L2xvZ2luPgogICAgPC9vcGVyYXRpb24+Cjwvc3NvPgoK</token>
+        <sign>T2MqxLJ5OFspJS6/XkY+sQMu+QqnJgN9lHhqEexiTwCyHqFTTRE25dNbDL5zNQfBcV/+H33e3dS5kOKtIsvbTuSt8u/URGzMu2n3y4/Aqb7L8ccSSR+ZZFoTK/fPDecHClHrm/r4PptLe32PBKFD+E8vmt+UNeuzmlbOLI4llZo=</sign>
+    </credentials>
+</loginTicketResponse>
+
