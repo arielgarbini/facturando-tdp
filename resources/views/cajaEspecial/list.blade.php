@@ -1,9 +1,9 @@
-@extends('app')
+@extends('admin')
 
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">  @if(isset($date)) <b> Caja {{ date('d-m-Y', strtotime($date)) }} </b> @else <b>Caja @if($ultimo_cierre > $today) Cerrada @else Abierta @endif </b>
 <a href= @if($ultimo_cierre > $today) "#" @else "/cerrarCajaEspecial" @endif style="margin-top:-7px; float:right;" class="btn btn-info">Cerrar Caja</a>

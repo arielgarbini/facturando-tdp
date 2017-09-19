@@ -139,7 +139,7 @@ public static function FECAESolicitar ($client, $params)
   return $resul;
 }
 
-public static function EmitirFC ($client, $token, $sign, $CUIT, $PV, $CANT, $IDfacturaHead)
+    public static function EmitirFC ($client, $token, $sign, $CUIT, $PV, $CANT, $IDfacturaHead)
 {
 
   $facturaHead = InvoiceHead::find($IDfacturaHead);
@@ -186,7 +186,10 @@ public static function EmitirFC ($client, $token, $sign, $CUIT, $PV, $CANT, $IDf
   $params['FeCAEReq']['FeCabReq'] = $FeCabReq;
   $params['FeCAEReq']['FeDetReq'] = $FeDetReq;
 
-  $resul = \myFunctions::FECAESolicitar($client, $params);
+  //$resul = \myFunctions::FECAESolicitar($client, $params);
+    $resul = ['cae' => NULL, 'fecha_cae' => NULL,
+        'cbteNro' => 1, 'resultado' => 'G',
+        'motivo_r' => NULL];
 
   $facturaHead->cae = $resul['cae'];
   $facturaHead->fecha_vto_cae = $resul['fecha_cae'];

@@ -9,6 +9,8 @@ use Illuminate\Http\Response;
 use Request;
 use Session;
 use Auth;
+use App\Repositories\UserRepository;
+use App\Repositories\RoleRepository;
 
 class UsersController extends Controller {
 
@@ -17,8 +19,15 @@ class UsersController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $userRepository;
+
+	private $roleRepository;
+
+	public function __construct(UserRepository $userRepository, RoleRepository $roleRepository)
 	{
+	    $this->userRepository = $userRepository;
+	    $this->roleRepository = $roleRepository;
 		$this->middleware('auth');
 	}
 

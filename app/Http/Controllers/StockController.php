@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use Request;
 use Session;
 use Auth;
+use App\Repositories\StockRepository;
 
 class StockController extends Controller {
 
@@ -17,8 +18,12 @@ class StockController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $stockRepository;
+
+	public function __construct(StockRepository $stockRepository)
 	{
+	    $this->stockRepository = $stockRepository;
 		$this->middleware('auth');
 	}
 

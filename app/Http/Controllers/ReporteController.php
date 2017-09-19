@@ -9,6 +9,9 @@ use Illuminate\Http\Response;
 use Request;
 use Session;
 use Auth;
+use App\Repositories\InvoiceHeadRepository;
+use App\Repositories\PagoRepository;
+use App\Repositories\FacturaProveedorRepository;
 
 class ReporteController extends Controller {
 
@@ -17,8 +20,20 @@ class ReporteController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $invoiceHeadRepository;
+
+    private $pagoRepository;
+
+    private $facturaProveedorRepository;
+
+	public function __construct(InvoiceHeadRepository $invoiceHeadRepository,
+                                PagoRepository $pagoRepository,
+                                FacturaProveedorRepository $facturaProveedorRepository)
 	{
+	    $this->facturaProveedorRepository = $facturaProveedorRepository;
+	    $this->pagoRepository = $pagoRepository;
+	    $this->invoiceHeadRepository = $invoiceHeadRepository;
 		$this->middleware('auth');
 	}
 

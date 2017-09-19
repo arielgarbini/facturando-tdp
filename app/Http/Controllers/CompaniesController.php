@@ -7,6 +7,14 @@ use Response;
 use Session;
 use Auth;
 use Request;
+use App\Repositories\CompanyRepository;
+use App\Repositories\CountryRepository;
+use App\Repositories\FiscalSituationRepository;
+use App\Repositories\ClienteRepository;
+use App\Repositories\TaxTypeRepository;
+use App\Repositories\CorredorRepository;
+use App\Repositories\AddressRepository;
+use App\Repositories\StateRepository;
 
 class CompaniesController extends Controller {
 
@@ -26,8 +34,40 @@ class CompaniesController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $companyRepository;
+
+    private $countryRepository;
+
+    private $fiscalSituationRepository;
+
+    private $clienteRepository;
+
+    private $taxTypeRepository;
+
+    private $corredorRepository;
+
+    private $addressRepository;
+
+    private $stateRepository;
+
+	public function __construct(CompanyRepository $companyRepository,
+                                CountryRepository $countryRepository,
+                                FiscalSituationRepository $fiscalSituationRepository,
+                                ClienteRepository $clienteRepository,
+                                TaxTypeRepository $taxTypeRepository,
+                                CorredorRepository $corredorRepository,
+                                AddressRepository $addressRepository,
+                                StateRepository $stateRepository)
 	{
+        $this->companyRepository = $companyRepository;
+        $this->countryRepository = $countryRepository;
+        $this->fiscalSituationRepository = $fiscalSituationRepository;
+        $this->clienteRepository = $clienteRepository;
+        $this->taxTypeRepository = $taxTypeRepository;
+        $this->corredorRepository = $corredorRepository;
+        $this->addressRepository = $addressRepository;
+        $this->stateRepository = $stateRepository;
 		$this->middleware('auth');
 	}
 

@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-	
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>FACTURANDO!</title>
-        <style>
-         body {font-size:12px;}   
-        </style>
+@extends('admin')
 
-	</head>
-
-	<body>
+@section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-body">
 					
@@ -75,5 +64,5 @@
 		</div>
 	</div>
 </div>
-</body>
-</html>
+@endsection
+

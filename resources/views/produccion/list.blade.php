@@ -1,5 +1,4 @@
-@extends('app')
-
+@extends('admin')
 
 @section('content')
 <div class="container-fluid">

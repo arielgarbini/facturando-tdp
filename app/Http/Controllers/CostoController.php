@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use Request;
 use Session;
 use Auth;
+use App\Repositories\ProductRepository;
 
 class CostoController extends Controller {
 
@@ -17,8 +18,12 @@ class CostoController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $productRepository;
+
+	public function __construct(ProductRepository $productRepository)
 	{
+	    $this->productRepository = $productRepository;
 		$this->middleware('auth');
 	}
 

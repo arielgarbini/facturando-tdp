@@ -1,9 +1,9 @@
-@extends('app')
+@extends('admin')
 
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Crear {{$tipo_cbte}}</div>
 				<div class="panel-body">
@@ -48,8 +48,8 @@
 							</div>
 							</section>
 						<section id="fechas">
-						</section>				
-					</section>
+						</section>
+						<section class="content">
 					<hr>
 					<p><button type="button" id="addFile" class="btn btn-success">Agregar Fila</button>&nbsp;&nbsp;&nbsp;
 						<button type="button" id="removeFile" class="btn btn-danger">Eliminar Fila</button></p>
@@ -96,6 +96,8 @@
 									</button>
 								</div>
 							</div>
+
+				</section>
 						</form>
 					</div>
 				</div>

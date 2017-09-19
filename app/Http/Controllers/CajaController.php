@@ -7,6 +7,10 @@ use Response;
 use Session;
 use Auth;
 use Request;
+use App\Repositories\CierreCajaRepository;
+use App\Repositories\CajaRepository;
+use App\Repositories\ConceptosCajaRepository;
+use App\Repositories\CajaEspecialRepository;
 
 class CajaController extends Controller {
 
@@ -26,8 +30,23 @@ class CajaController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $cierreCajaRepository;
+
+	private $caja;
+
+	private $conceptosCaja;
+
+	private $cajaEspecial;
+
+	public function __construct(CierreCajaRepository $cierreCajaRepository, CajaRepository $caja,
+                                ConceptosCajaRepository $conceptosCaja,
+                                CajaEspecialRepository $cajaEspecial)
 	{
+        $this->cierreCajaRepository = $cierreCajaRepository;
+        $this->caja = $caja;
+        $this->conceptosCaja = $conceptosCaja;
+        $this->cajaEspecial = $cajaEspecial;
 		$this->middleware('auth');
 	}
 

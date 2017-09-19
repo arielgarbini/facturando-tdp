@@ -1,9 +1,9 @@
-@extends('app')
+@extends('admin')
 
 @section('content')
 <div class="container-fluid">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
+		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Administrar Facturas de Compra
 					<a href= "/crearFacturaCompra"  style="margin-top:-7px; float:right;" class="btn btn-success" >Crear Cbte. de Compra</a>

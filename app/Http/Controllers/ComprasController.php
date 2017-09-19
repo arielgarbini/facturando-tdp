@@ -7,6 +7,11 @@ use Response;
 use Session;
 use Auth;
 use Request;
+use App\Repositories\CompanyRepository;
+use App\Repositories\TaxTypeRepository;
+use App\Repositories\FiscalSituationRepository;
+use App\Repositories\TipoCbteProvRepository;
+use App\Repositories\FacturaProveedorRepository;
 
 class ComprasController extends Controller {
 
@@ -26,8 +31,28 @@ class ComprasController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $companyRepository;
+
+    private $taxTypeRepository;
+
+    private $fiscalSituationRepository;
+
+    private $tipoCbteProvRepository;
+
+    private $facturaProveedorRepository;
+
+	public function __construct(CompanyRepository $companyRepository,
+                                TaxTypeRepository $taxTypeRepository,
+                                FiscalSituationRepository $fiscalSituationRepository,
+                                TipoCbteProvRepository $tipoCbteProvRepository,
+                                FacturaProveedorRepository $facturaProveedorRepository)
 	{
+	    $this->companyRepository = $companyRepository;
+	    $this->taxTypeRepository = $taxTypeRepository;
+	    $this->fiscalSituationRepository = $fiscalSituationRepository;
+	    $this->tipoCbteProvRepository = $tipoCbteProvRepository;
+	    $this->facturaProveedorRepository = $facturaProveedorRepository;
 		$this->middleware('auth');
 	}
 

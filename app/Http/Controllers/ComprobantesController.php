@@ -7,13 +7,43 @@ use Request;
 use Session;
 use Response;
 use Auth;
+use App\Repositories\ClienteRepository;
+use App\Repositories\InvoiceHeadRepository;
+use App\Repositories\InvoiceLineRepository;
+use App\Repositories\TaxTypeRepository;
+use App\Repositories\FiscalSituationRepository;
+use App\Repositories\CtaCteRepository;
+use App\Repositories\RelFSCbtesRepository;
 
 
 class ComprobantesController extends Controller{
 
+    private $cliente;
 
-	public function __construct()
+    private $invoiceHead;
+
+    private $invoiceLine;
+
+    private $taxType;
+
+    private $fiscalSituation;
+
+    private $ctaCte;
+
+    private $relFSCbtes;
+
+	public function __construct(ClienteRepository $cliente,
+                                InvoiceHeadRepository $invoiceHead, InvoiceLineRepository $invoiceLine,
+                                TaxTypeRepository $taxType, FiscalSituationRepository $fiscalSituation,
+                                CtaCteRepository $ctaCte, RelFSCbtesRepository $relFSCbtes)
 	{
+        $this->cliente = $cliente;
+        $this->invoiceHead = $invoiceHead;
+        $this->invoiceLine = $invoiceLine;
+        $this->taxType = $taxType;
+        $this->fiscalSituation = $fiscalSituation;
+        $this->ctaCte = $ctaCte;
+        $this->relFSCbtes = $relFSCbtes;
 		$this->middleware('auth');
 	}
 

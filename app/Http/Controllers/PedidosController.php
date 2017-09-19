@@ -8,13 +8,16 @@ use Session;
 use Response;
 use Auth;
 use File;
+use App\Repositories\PedidoRepository;
 
 
 class PedidosController extends Controller{
 
+    private $pedidoRepository;
 
-	public function __construct()
+	public function __construct(PedidoRepository $pedidoRepository)
 	{
+	    $this->pedidoRepository = $pedidoRepository;
 		$this->middleware('auth');
 	}
 

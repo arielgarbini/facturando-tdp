@@ -9,6 +9,9 @@ use Illuminate\Http\Response;
 use Request;
 use Session;
 use Auth;
+use App\Repositories\ProductRepository;
+use App\Repositories\CategoryRepository;
+use App\Repositories\TipoIVARepository;
 
 class ProductsController extends Controller {
 
@@ -17,8 +20,20 @@ class ProductsController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $productRepository;
+
+    private $categoryRepository;
+
+    private $tipoIVARepository;
+
+	public function __construct(ProductRepository $productRepository,
+                                CategoryRepository $categoryRepository,
+                                TipoIVARepository $tipoIVARepository)
 	{
+	    $this->productRepository = $productRepository;
+	    $this->categoryRepository = $categoryRepository;
+	    $this->tipoIVARepository = $tipoIVARepository;
 		$this->middleware('auth');
 	}
 

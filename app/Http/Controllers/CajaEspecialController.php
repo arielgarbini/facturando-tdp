@@ -1,5 +1,6 @@
 <?php namespace app\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -7,6 +8,9 @@ use Response;
 use Session;
 use Auth;
 use Request;
+use App\Repositories\CajaEspecialRepository;
+use App\Repositories\CierreCajaEspecialRepository;
+use App\Repositories\ConceptosCajaEspecialRepository;
 
 class CajaEspecialController extends Controller {
 
@@ -26,8 +30,20 @@ class CajaEspecialController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $cajaEspecial;
+
+	private $cierreCajaEspecial;
+
+	private $conceptosCajaEspecial;
+
+	public function __construct(CajaEspecialRepository $cajaEspecial,
+                                CierreCajaEspecialRepository $cierreCajaEspecial,
+                                ConceptosCajaEspecialRepository $conceptosCajaEspecial)
 	{
+	    $this->cajaEspecial = $cajaEspecial;
+	    $this->cierreCajaEspecial = $cierreCajaEspecial;
+	    $this->conceptosCajaEspecial = $conceptosCajaEspecial;
 		$this->middleware('auth');
 	}
 
@@ -38,26 +54,26 @@ class CajaEspecialController extends Controller {
 	 */
 
 	public function listCajaMov($date = null){
-
+        dd('adw');
                if($date==null){
                 
 		        $yesterday = date('Y-m-d', strtotime( '-1 days' ));
                 
                 $today = date('Y-m-d');
             
-                if(\app\CierreCajaEspecial::all()->last()!=null){
+                /*if(\app\CierreCajaEspecial::all()->last()!=null){
 
                 $ultimo_cierre = strtotime(\app\CierreCajaEspecial::all()->last()->created_at);   
 
                 }else{
                 $ultimo_cierre = 0;
-                }
-                
+                }*/
+                $ultimo_cierre = 0;
                 $cierreAnterior = \app\CajaEspecial::where('created_at','<=',$today)->orderBy('created_at', 'desc')->first();
                 $fechaCA = date('Y-m-d',strtotime($cierreAnterior->created_at));
 
                 $caja = \app\CajaEspecial::where('created_at','>',$fechaCA)->get();
-                $today = strtotime(\app\CajaEspecial::all()->last()->created_at);
+                $today = strtotime(Carbon::now()/*\app\CajaEspecial::all()->last()->created_at*/);
              
 		        return view('cajaEspecial.list')->with('cierreAnterior',$cierreAnterior)->with('caja',$caja)->with('today',$today)->with('ultimo_cierre',$ultimo_cierre);
                 

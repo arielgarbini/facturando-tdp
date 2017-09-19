@@ -8,13 +8,46 @@ use Session;
 use Response;
 use Auth;
 use File;
-
+use App\Repositories\PedidoRepository;
+use App\Repositories\ClienteRepository;
+use App\Repositories\InvoiceHeadRepository;
+use App\Repositories\InvoiceLineRepository;
+use App\Repositories\TaxTypeRepository;
+use App\Repositories\FiscalSituationRepository;
+use App\Repositories\CtaCteRepository;
+use App\Repositories\CorredorRepository;
 
 class RemitosController extends Controller{
 
+    private $pedido;
 
-	public function __construct()
+    private $cliente;
+
+    private $invoiceHead;
+
+    private $invoiceLine;
+
+    private $taxType;
+
+    private $fiscalSituation;
+
+    private $ctaCte;
+
+    private $corredor;
+
+	public function __construct(PedidoRepository $pedido, ClienteRepository $cliente,
+                                InvoiceHeadRepository $invoiceHead, InvoiceLineRepository $invoiceLine,
+                                TaxTypeRepository $taxType, FiscalSituationRepository $fiscalSituation,
+                                CtaCteRepository $ctaCte, CorredorRepository $corredor)
 	{
+        $this->pedido = $pedido;
+        $this->cliente = $cliente;
+        $this->invoiceHead = $invoiceHead;
+        $this->invoiceLine = $invoiceLine;
+        $this->taxType = $taxType;
+        $this->fiscalSituation = $fiscalSituation;
+        $this->ctaCte = $ctaCte;
+        $this->corredor = $corredor;
 		$this->middleware('auth');
 	}
 

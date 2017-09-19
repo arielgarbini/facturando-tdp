@@ -7,6 +7,11 @@ use Response;
 use Session;
 use Auth;
 use Request;
+use App\Repositories\PagoRepository;
+use App\Repositories\MedioPagoRepository;
+use App\Repositories\CtaCteRepository;
+use App\Repositories\InvoiceHeadRepository;
+
 
 class CuentaCorrienteController extends Controller {
 
@@ -26,8 +31,24 @@ class CuentaCorrienteController extends Controller {
 	 *
 	 * @return void
 	 */
-	public function __construct()
+
+	private $pagoRepository;
+
+    private $medioPagoRepository;
+
+    private $ctaCteRepository;
+
+    private $invoiceHeadRepository;
+
+	public function __construct(PagoRepository $pagoRepository,
+                                MedioPagoRepository $medioPagoRepository,
+                                CtaCteRepository $ctaCteRepository,
+                                InvoiceHeadRepository $invoiceHeadRepository)
 	{
+	    $this->pagoRepository = $pagoRepository;
+        $this->medioPagoRepository = $medioPagoRepository;
+        $this->ctaCteRepository = $ctaCteRepository;
+        $this->invoiceHeadRepository = $invoiceHeadRepository;
 		$this->middleware('auth');
 	}
 
