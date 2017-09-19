@@ -35,7 +35,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>TS</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><b>ITWarp</b>Consulting ATS</span>
+            <span class="logo-lg"><b>Toallasd</b></span>
         </a>
 
         <!-- Header Navbar -->
@@ -314,7 +314,7 @@
 
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">ItWarp</a>.</strong> Todos los derechos reservados.
+        <strong>Copyright &copy; 2016 <a href="#">Toallasd</a>.</strong> Todos los derechos reservados.
     </footer>
 
     <!-- Control Sidebar -->
