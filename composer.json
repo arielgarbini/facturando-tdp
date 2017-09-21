@@ -16,10 +16,12 @@
 	},
 	"autoload": {
 		"classmap": [
-			"database"
+			"database",
+			"app/Repositories"
 		],
 		"psr-4": {
-			"app\\": "app/"
+			"app\\": "app/",
+			"App\\": "app/"
 		},
 	"files": [
         "app/Support/myFunctions.php"
